@@ -33,7 +33,7 @@ const Home = ({name, setName, fetchQuestions} ) => {
 
           {error && <ErrorMessage>Please fill all the fields</ErrorMessage>}
 
-          <TextField style={{marginBottom: 25}} label='Enter Your Name' variant='outlined'
+          <TextField style={{marginBottom: 25}} label='Enter Your Name' variant='outlined' 
           onChange={(e)=>setName(e.target.value)}/>
 
           <TextField style={{marginBottom: 25}} select label='Select Category' variant='outlined'

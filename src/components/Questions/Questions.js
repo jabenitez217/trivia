@@ -75,7 +75,7 @@ const Questions = ({
                     variant='contained'
                     color='neutral'
                     size='large'
-                    style={{width: 185}}
+                    style={{width: 185, margin: 20}}
                     href='/'
                     onClick={handleQuit}
                 >
