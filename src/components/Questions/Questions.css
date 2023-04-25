@@ -44,6 +44,14 @@
     }
 }
 
+@media (max-width: 500px) {
+    .controls {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
 .select {
     background-color: rgb(7, 207, 0);
     color: white;

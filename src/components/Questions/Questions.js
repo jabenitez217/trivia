@@ -65,7 +65,8 @@ const Questions = ({
                             onClick={()=>{handleCheck(i)}} 
                             className={`singleOption ${selected && handleSelect(i)}`}
                             key={i}
-                            disabled={selected}>
+                            disabled={selected}
+                            style={{color: "black"}}>
                         {i.replaceAll('&quot;','"').replaceAll('&#039;',"'").replaceAll('&amp;','&')}</button>
                     ))
                 }
