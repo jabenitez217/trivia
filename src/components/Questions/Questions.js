@@ -56,7 +56,8 @@ const Questions = ({
     <div className='question'>
         <h1>Question {currQues + 1}</h1>
         <div className='single_question'>
-            <h2>{questions[currQues].question.replaceAll('&quot;','"').replaceAll('&#039;',"'").replaceAll('&amp;','&')}</h2>
+            <h2>{questions[currQues].question.replaceAll('&quot;','"').replaceAll('&#039;',"'").replaceAll('&amp;','&')
+            .replaceAll('&eacute;','é')}</h2>
             <div className='options'>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
                 {
@@ -67,7 +68,8 @@ const Questions = ({
                             key={i}
                             disabled={selected}
                             style={{color: "black"}}>
-                        {i.replaceAll('&quot;','"').replaceAll('&#039;',"'").replaceAll('&amp;','&')}</button>
+                        {i.replaceAll('&quot;','"').replaceAll('&#039;',"'").replaceAll('&amp;','&')
+                        .replaceAll('&eacute;','é')}</button>
                     ))
                 }
             </div>

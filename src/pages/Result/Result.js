@@ -34,6 +34,11 @@ const Result = ({name, score}) => {
       >
         Return Home
       </Button>
+      <div className='feedback'>
+        Thanks for Playing! Please feel free to leave any feedback 
+        <a href='https://forms.gle/GqfhaL4Ru5wPWryTA'> here.</a>
+        {/* <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeAaNF9YLXUFUPT3wBei8Q0zfpJW0gIbAv7ZHvEEH6KjgzNag/viewform?embedded=true" width="640" height="633" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> */}
+      </div>
     </div>
   )
 }

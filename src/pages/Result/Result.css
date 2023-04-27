@@ -2,7 +2,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 60vh;
     text-align: center;
+}
+
+.feedback {
+    height: 150px;
+    padding-top: 100px;
+}
+
+a {
+    color: #0645AD;
 }
 
