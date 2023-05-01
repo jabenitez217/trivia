@@ -6,7 +6,7 @@ import Quiz from './pages/Quiz/Quiz';
 import Result from './pages/Result/Result';
 import React, { useState } from 'react';
 import axios from 'axios';
-import {createTheme, ThemeProvider} from '@mui/material'
+import {createTheme, ThemeProvider} from '@mui/material';
 
 const theme = createTheme({
   palette: {
