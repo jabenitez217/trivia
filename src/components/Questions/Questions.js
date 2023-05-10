@@ -33,7 +33,7 @@ const Questions = ({
         if (i === correct) {
             setScore(score + 1);
         }
-        setError(false);            
+        setError(false);       
     };
 
     const handleQuit = () => {
@@ -52,12 +52,16 @@ const Questions = ({
         }
     }
 
+    const htmlDecode = (text) => {
+        let doc = new DOMParser().parseFromString(text, "text/html");
+        return doc.documentElement.textContent;
+    }
+
   return (
     <div className='question'>
         <h1>Question {currQues + 1}</h1>
         <div className='single_question'>
-            <h2>{questions[currQues].question.replaceAll('&quot;','"').replaceAll('&#039;',"'").replaceAll('&amp;','&')
-            .replaceAll('&eacute;','é')}</h2>
+            <h2>{htmlDecode(questions[currQues].question)}</h2>
             <div className='options'>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
                 {
@@ -68,8 +72,7 @@ const Questions = ({
                             key={i}
                             disabled={selected}
                             style={{color: "black"}}>
-                        {i.replaceAll('&quot;','"').replaceAll('&#039;',"'").replaceAll('&amp;','&')
-                        .replaceAll('&eacute;','é')}</button>
+                        {htmlDecode(i)}</button>
                     ))
                 }
             </div>
