@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import './Questions.css'
+import CorrectSound from './mixkit-arcade-bonus-alert-767.wav';
+import WrongSound from './mixkit-failure-arcade-alert-notification-240.wav';
 
 const Questions = ({
     currQues,
@@ -18,6 +20,10 @@ const Questions = ({
     const [error, setError] = useState(false);
     const history = useHistory();
 
+    const play = (sound) => {
+        new Audio(sound).play();
+    }
+
     const handleSelect = (i) => {
         if (selected === i && selected === correct) {
             return 'select';
@@ -32,6 +38,9 @@ const Questions = ({
         setSelected(i);
         if (i === correct) {
             setScore(score + 1);
+            play(CorrectSound);
+        } else {
+            play(WrongSound);
         }
         setError(false);       
     };
