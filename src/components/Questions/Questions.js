@@ -15,6 +15,7 @@ const Questions = ({
     score,
     setScore,
     setQuestions,
+    sound,
 }) => {
     const [selected, setSelected] = useState();
     const [error, setError] = useState(false);
@@ -38,9 +39,13 @@ const Questions = ({
         setSelected(i);
         if (i === correct) {
             setScore(score + 1);
-            play(CorrectSound);
+            if (sound) {
+                play(CorrectSound);
+            }
         } else {
-            play(WrongSound);
+            if (sound) {
+                play(WrongSound);
+            }
         }
         setError(false);       
     };

@@ -26,6 +26,7 @@ function App() {
   const [name, setName] = useState('');
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
+  const [sound, setSound] = useState(true);
   
   const fetchQuestions = async(category='', difficulty='') => {
     const {data} = await axios.get(
@@ -41,16 +42,16 @@ function App() {
     <ThemeProvider theme={theme}>
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header sound={sound} setSound={setSound}/>
         <Switch>
           <Route path='/' exact>
             <Home name={name} setName={setName} fetchQuestions={fetchQuestions}/>
           </Route>
           <Route path='/quiz' exact>
-            <Quiz name={name} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>
+            <Quiz name={name} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore} sound={sound}/>
           </Route>
           <Route path='/result' exact>
-            <Result name={name} score={score}/>
+            <Result name={name} score={score} sound={sound}/>
           </Route>
         </Switch>
       </div>
