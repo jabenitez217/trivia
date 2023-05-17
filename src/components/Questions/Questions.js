@@ -5,6 +5,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import './Questions.css'
 import CorrectSound from './mixkit-arcade-bonus-alert-767.wav';
 import WrongSound from './mixkit-failure-arcade-alert-notification-240.wav';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 const Questions = ({
     currQues,
@@ -20,6 +21,7 @@ const Questions = ({
     const [selected, setSelected] = useState();
     const [error, setError] = useState(false);
     const history = useHistory();
+    const [confetti, setConfetti] = useState(false);
 
     const play = (sound) => {
         new Audio(sound).play();
@@ -39,6 +41,7 @@ const Questions = ({
         setSelected(i);
         if (i === correct) {
             setScore(score + 1);
+            setConfetti(true);
             if (sound) {
                 play(CorrectSound);
             }
@@ -60,6 +63,7 @@ const Questions = ({
             history.push('/result');
         } else if (selected) {
             setCurrQues(currQues+1);
+            setConfetti(false);
             setSelected();
         } else {
             setError("Please select an option first");
@@ -69,10 +73,11 @@ const Questions = ({
     const htmlDecode = (text) => {
         let doc = new DOMParser().parseFromString(text, "text/html");
         return doc.documentElement.textContent;
-    }
+    } 
 
   return (
     <div className='question'>
+        {confetti && <ConfettiExplosion colors={['#388697','#FA8334','a9b0b4','#01161E']} height='200vh' duration={2500} width={1600}/>}
         <h1>Question {currQues + 1}</h1>
         <div className='single_question'>
             <h2>{htmlDecode(questions[currQues].question)}</h2>
