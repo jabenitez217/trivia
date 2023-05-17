@@ -5,7 +5,7 @@ import Questions from '../../components/Questions/Questions'
 import './Quiz.css';
 import QuizInfo from '../../components/QuizInfo/QuizInfo';
 
-const Quiz = ({name, questions, setQuestions, score, setScore}) => {
+const Quiz = ({name, questions, setQuestions, score, setScore, sound}) => {
 
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
@@ -44,6 +44,7 @@ const Quiz = ({name, questions, setQuestions, score, setScore}) => {
             score={score}
             setScore={setScore}
             setQuestions={setQuestions}
+            sound={sound}
           />
         </> 
       ): (

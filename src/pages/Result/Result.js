@@ -5,8 +5,10 @@ import { Button } from '@mui/material';
 import './Result.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSadCry, faFaceMeh, faFaceSmileBeam } from '@fortawesome/free-solid-svg-icons';
+import GoodSound from './mixkit-video-game-win-2016.wav';
+import BadSound from './mixkit-player-losing-or-failing-2042.wav'
 
-const Result = ({name, score}) => {
+const Result = ({name, score, sound}) => {
   
   const history = useHistory();
 
@@ -14,7 +16,18 @@ const Result = ({name, score}) => {
     if (!name) {
       history.push('/')
     }
+
+    if (sound) {
+      score <= 3 ? play(BadSound)
+        : score >=4 & score <=7 ? play(BadSound)
+        : play(GoodSound)
+    }
+    // eslint-disable-next-line
   }, [name, history])
+
+  const play = (audio) => {
+    new Audio(audio).play();
+  }
   
   return (
     <div className='result'>

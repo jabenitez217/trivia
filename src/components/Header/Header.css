@@ -18,3 +18,10 @@
     background-color: #01161E;
     border: none;
 }
+
+.sound {
+    border: none;
+    background-color: inherit;
+    position: absolute;
+    right: 5px;
+}
